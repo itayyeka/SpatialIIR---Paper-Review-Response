@@ -1,0 +1,128 @@
+The authors would like to thank the reviewers for their positive feedback. Detailed below our response to the points raised by reviewer \#2.
+
+\section{Response to Reviewer \#2}
+%\subsection*{Overall Comments}
+%\begin{mdframed}
+% \begin{quote}
+%     The paper presents a novel idea of implementing a spatial version of IIR filter to construct a beamformer for the purpose of source localization. I must admit that I have never encounter such an idea before, and I rate the paper highly for its originality. I did not find any fault with the math. The beamformer itself is very simple. The numerical evaluation of the performance are backed up by theoretical deductions. The authors show that it outperforms conventional beamfomer. The paper is short, simple, and easy to read; and the topic initiated by the authors certainly deserves further study.
+% \end{quote}
+% \end{mdframed}
+
+%\subsection{Response} 
+
+
+% \noindent\rule{17cm}{2.0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reviewer Comment}
+\begin{mdframed}
+\begin{quote}
+Since the paper deliberately sets out to implement a spatial version of the usual temporal IIR filter, it is certain to inherit some of the well known problems associated with IIR filters. I would particularly like the authors to address the stability of the obtained beamformer.
+\end{quote}
+\end{mdframed}
+
+\subsection{Response} 
+Indeed, with IIR filters, stability is of prime concern. The reviewer may notice that in Sec.~IV the requirement to maximize the FIM leads to optimal weights $\alpha$ which nullify the denominator of (7) if the channel gain $g$ is perfectly known. This, in fact, places the poles on the unit circle at the direction which corresponds to the DOA of the target. (Freely speaking, the Fisher information is maximized when the response 'explodes').
+To emphesize this, we have modified the text after (12) and mentioned the stability issue in the perfect alignment case.
+The rest of our analysis assumes imperfections which effectively shift the poles away from the unit circle.  Obviously, in order to analyze the stability of this spatial filter one needs to compute the poles position. Unfortunately, we find that a rigorous analysis of this is not simple, and we delay this to a future work.  \\
+
+\noindent\rule{17cm}{2.0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reviewer Comment}
+\begin{mdframed}
+\begin{quote}
+	The authors use continuous wave signal rather than pulsed wave signal. Can authors shed light on how the channel gain is to estimated? This seems to be the most crucial parameter to estimate, not only to set the beamformer weights, but also in order to understand by how much the proposed beamformer will outperform the conventional one. Ultimately, it seems that the proposed beamformer's performance will be theoretically limited by the accuracy by which the gain can be measured.
+\end{quote}
+\end{mdframed}
+
+\subsection{Response}  
+Indeed, in a practical application the channel gain (as well as the DOA and the range to the target) are needed to be estimated. A bruit-force solution might be to use many channel gain estimates, $\hat{g}$, till the response is sufficiently large.
+In this paper, however, we only analyze the effect of estimation imperfections.
+We hope that the question of channel gain estimation in this IIR setting will inspire future research and thank the reviewer for this important point.
+\\
+\noindent\rule{17cm}{2.0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reviewer Comment}
+\begin{mdframed}
+\begin{quote}
+What will happen in eqn (17) when $r > 1$. By the definition of $r$, this is certainly a possibility.
+\end{quote}
+\end{mdframed}
+
+\subsection{Response} 
+Intuitively speaking, when r>1, (and also assuming that the range and the DOA are perfectly known) there is a positive and coherent feedback between the array and the target. This will lead to instability. A simulation of this effect is shown here below.  However, as previously mentioned, rigorous mathematical analysis of the stability is beyond the scope of the current contribution.
+\begin{figure}[htbp!]
+    \begin{center}
+        \begin{overpic}[width=.5\linewidth, 
+        % grid, 
+        tics=10,trim=0 0 0 0]{./Media/temporal_rangeErr_r06_09_11.eps}
+            \put (2, 72.5){$log10(\abs{z\rBrace{t}})$}
+            \put (45,0){$t/\rBrace{2\tau_{pd}}$}
+            \put (45,23){$r=0.6$}
+            \put (45,30){$r=0.9$}
+            \put (45,42){$r=1.1$}
+        \end{overpic}
+    \end{center}
+    \caption{
+    Simulating 3-element ULA, without rage or direction errors, and several values of the gain ratio $r$. When $r$ is larger than one, a positive and coherent feedback constantly increases the output.
+    }
+    \label{fig_temporal_rangeErr_r11}
+\end{figure}
+\\
+\noindent\rule{17cm}{2.0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reviewer Comment}
+\begin{mdframed}
+\begin{quote}
+In eqn (26) it is not clear how the authors came up with the harmonic mean of two beamformers as the dual frequency beamformer. While I understand that the proposed beamformer has the same functional form as single frequency beamformer, is the any other rationale?
+\end{quote}
+\end{mdframed}
+
+\subsection{Response} 
+As discussed at the beginning of Sec.~VI and in the ``Intuition`` subsection of Sec.~VII, we identified the term $\exp\Brack{j\dPhi}=\exp\Brack{j\omega\Delta\tau_{pd}}$ to be the cause for the high sensitivity. Following the notion that two close, yet, separated frequencies will help us diminish the disturbance, we looked for ways to cancel out $\exp\Brack{j\dPhi}$. As the problematic term appears in the denominator, the obvious next step was to use the reciprocal of both calculated energies and average out the disturbance. In order to clarify this, we have modified the preceding text to (26), hoping that now this better explains the rationale. 
+
+\noindent\rule{17cm}{2.0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reviewer Comment}
+\begin{mdframed}
+\begin{quote}
+In Fig. 12 only SNR of 6 dB and 0 dB has been plotted. Is it also possible to have a subplot for lower SNR value of -6 dB
+\end{quote}
+\end{mdframed}
+
+\subsection{Response} 
+The requested plot has been added to Fig.12. 
+
+\noindent\rule{17cm}{2.0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reviewer Comment}
+\begin{mdframed}
+\begin{quote}
+The clarity of Fig. 2 can be improved.
+\end{quote}
+\end{mdframed}
+
+\subsection{Response} 
+The figure was rectified.
+
+\noindent\rule{17cm}{2.0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Reviewer Comment}
+\begin{mdframed}
+\begin{quote}
+In Appendix B, what does ! above the equal sign mean?
+\end{quote}
+\end{mdframed}
+
+\subsection{Response} 
+It represents that the equality is a requirement. We have removed this sign and added a textual explanation so that no confusion shall occur.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\rule{17cm}{6.0pt}
