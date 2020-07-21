@@ -22,9 +22,9 @@ Since the paper deliberately sets out to implement a spatial version of the usua
 \end{mdframed}
 
 \subsection{Response} 
-Indeed, with IIR filters, stability is of prime concern. The reviewer may notice that in Sec.~IV the requirement to maximize the FIM leads to optimal weights $\alpha$ which nullify the denominator of (7) if the channel gain $g$ is perfectly known. This, in fact, places the poles on the unit circle at the direction which corresponds to the DOA of the target. (Freely speaking, the Fisher information is maximized when the response 'explodes').
-To emphesize this, we have modified the text after (12) and mentioned the stability issue in the perfect alignment case.
-The rest of our analysis assumes imperfections which effectively shift the poles away from the unit circle.  Obviously, in order to analyze the stability of this spatial filter one needs to compute the poles position. Unfortunately, we find that a rigorous analysis of this is not simple, and we delay this to a future work.  \\
+Indeed, with IIR filters, stability is of a prime concern. The reviewer may notice that in Sec.~IV the requirement to maximize the FIM leads to an optimal weight $\alpha$ which nullify the denominator in (7) if the channel gain $g$ is perfectly known. This, in fact, places the poles on the unit circle at the direction corresponding to the DOA of the target (freely speaking, the Fisher information is maximized when the response 'explodes').
+To emphasize this, we have modified the text after (12) and mentioned the stability issue in the perfect alignment case.
+The rest of our analysis assumes imperfections which effectively shift the poles away from the unit circle.  Obviously, in order to analyze the stability of this spatial filter one needs to compute the poles. Unfortunately, we found that a rigorous analysis of this is not simple, and we defer this to a future work.  \\
 
 \noindent\rule{17cm}{2.0pt}
 
@@ -37,9 +37,9 @@ The rest of our analysis assumes imperfections which effectively shift the poles
 \end{mdframed}
 
 \subsection{Response}  
-Indeed, in a practical application the channel gain (as well as the DOA and the range to the target) are needed to be estimated. A bruit-force solution might be to use many channel gain estimates, $\hat{g}$, till the response is sufficiently large.
-In this paper, however, we only analyze the effect of estimation imperfections.
-We hope that the question of channel gain estimation in this IIR setting will inspire future research and thank the reviewer for this important point.
+Indeed, in a practical application the channel gain (as well as the DOA and the range to the target)  need to be estimated. A brute-force solution might be to use many channel gain estimates, $\hat{g}$, till the response is sufficiently large.
+In this paper, however, we only analyze the effect of imperfect estimation .
+We hope that the question of channel gain estimation in this IIR setting will inspire future research and thank the reviewer for this important comment.
 \\
 \noindent\rule{17cm}{2.0pt}
 
@@ -52,7 +52,7 @@ What will happen in eqn (17) when $r > 1$. By the definition of $r$, this is cer
 \end{mdframed}
 
 \subsection{Response} 
-Intuitively speaking, when r>1, (and also assuming that the range and the DOA are perfectly known) there is a positive and coherent feedback between the array and the target. This will lead to instability. A simulation of this effect is shown here below.  However, as previously mentioned, rigorous mathematical analysis of the stability is beyond the scope of the current contribution.
+Intuitively speaking, when $r>1$, (and also assuming that the range and the DOA are perfectly known) there is a positive and coherent feedback between the array and the target. This will lead to instability. A simulation of this effect is shown here below.  However, as previously mentioned, rigorous mathematical analysis of the stability is beyond the scope of the current contribution.
 \begin{figure}[htbp!]
     \begin{center}
         \begin{overpic}[width=.5\linewidth, 
@@ -66,7 +66,7 @@ Intuitively speaking, when r>1, (and also assuming that the range and the DOA ar
         \end{overpic}
     \end{center}
     \caption{
-    Simulating 3-element ULA, without rage or direction errors, and several values of the gain ratio $r$. When $r$ is larger than one, a positive and coherent feedback constantly increases the output.
+    Simulating a 3-element ULA, without rage or direction errors, and several values of the gain ratio $r$. When $r$ is larger than one, a positive and coherent feedback constantly increases the output.
     }
     \label{fig_temporal_rangeErr_r11}
 \end{figure}
@@ -82,7 +82,7 @@ In eqn (26) it is not clear how the authors came up with the harmonic mean of tw
 \end{mdframed}
 
 \subsection{Response} 
-As discussed at the beginning of Sec.~VI and in the ``Intuition`` subsection of Sec.~VII, we identified the term $\exp\Brack{j\dPhi}=\exp\Brack{j\omega\Delta\tau_{pd}}$ to be the cause for the high sensitivity. Following the notion that two close, yet, separated frequencies will help us diminish the disturbance, we looked for ways to cancel out $\exp\Brack{j\dPhi}$. As the problematic term appears in the denominator, the obvious next step was to use the reciprocal of both calculated energies and average out the disturbance. In order to clarify this, we have modified the preceding text to (26), hoping that now this better explains the rationale. 
+As discussed at the beginning of Sec.~VI and in the ``Intuition`` subsection in Sec.~VII, we identified the term $\exp\Brack{j\dPhi}=\exp\Brack{j\omega\Delta\tau_{pd}}$ to be the cause for the high sensitivity. Following the notion that two close, yet, separated frequencies will help us diminish the disturbance, we looked for ways to cancel out $\exp\Brack{j\dPhi}$. As the problematic term appears in the denominator, the obvious next step was to use the reciprocal of both calculated energies and average out the disturbance. In order to clarify this, we have modified the text preceding to (26), hoping that now this better explains the rationale. 
 
 \noindent\rule{17cm}{2.0pt}
 
@@ -108,7 +108,7 @@ The clarity of Fig. 2 can be improved.
 \end{mdframed}
 
 \subsection{Response} 
-The figure was rectified.
+The figure was revised.
 
 \noindent\rule{17cm}{2.0pt}
 
@@ -121,7 +121,7 @@ In Appendix B, what does ! above the equal sign mean?
 \end{mdframed}
 
 \subsection{Response} 
-It represents that the equality is a requirement. We have removed this sign and added a textual explanation so that no confusion shall occur.
+It states that the equality is a requirement. We have removed this sign and added an explanation in the text to avoid confusion.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
